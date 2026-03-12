@@ -35,4 +35,5 @@ indicators:
 adaptive:
   val_years: 2
   grid:
-    vote_threshold: [0.6]
+    vote_threshold: [0.5, 0.6, 0.7]
+    trader_min_rtr: [0.5, 0.6, 0.7]
