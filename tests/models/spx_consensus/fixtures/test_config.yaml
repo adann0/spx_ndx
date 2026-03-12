@@ -1,0 +1,37 @@
+frequency: monthly
+
+train_start_year: 1993
+first_test_year: 1999
+test_years: 10
+
+trader_min_rtr: 0.6
+vote_threshold: 0.6
+
+min_signals_per_trader: 2
+max_signals_per_trader: 4
+top_traders: 50
+
+min_traders_per_group: 2
+max_traders_per_group: 2
+group_min_rtr: 0.01
+group_min_cagr: 0.01
+top_groups: 30
+group_aggregation: equal
+
+cagr_thresholds: [0.07, 0.09, 0.11]
+
+indicators:
+  SMA Xm:      [5, 10, 12]
+  VIX<X:        [30]
+  RSI<X:        [70]
+  RSI 30-X:     [70]
+  MACDhist>X:   [0]
+  CAPE z<X:     [1.5]
+  CPI<X:        [5]
+  EMA200>X:     [0]
+
+adaptive:
+  val_years: 0.5
+  grid:
+    vote_threshold: [0.5, 0.6, 0.7]
+    trader_min_rtr: [0.5, 0.6, 0.7]

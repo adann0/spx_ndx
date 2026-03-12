@@ -1,0 +1,32 @@
+"""spx_cape.py - CAPE Shiller full history -> output/spx_cape.png"""
+import sys
+import matplotlib.pyplot as plt
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from spx_ndx import utils as u
+
+cape = u.load_pq("spx_shiller_pe_ratio")
+s = cape.sort_index()
+cur = s.iloc[-1]
+
+fig, ax = plt.subplots(figsize=(16, 6))
+u.apply_style(fig, ax)
+
+ax.axhspan(0,   15, alpha=0.07, color=u.GREEN,  zorder=0)
+ax.axhspan(25,  35, alpha=0.07, color=u.ORANGE, zorder=0)
+ax.axhspan(35, 999, alpha=0.07, color=u.RED,    zorder=0)
+
+ax.plot(s.index, s.values, color=u.PURPLE, lw=1.2, label="CAPE (Shiller P/E)", zorder=3)
+
+ax.axhline(cur,  color=u.PURPLE, lw=0.8, ls="--", alpha=0.7, label="Actual")
+
+pad = (s.max() - s.min()) * 0.05
+ax.set_ylim(max(0, s.min() - pad), s.max() + pad)
+ax.set_ylabel("CAPE", color=u.TEXT, fontsize=10)
+u.fmt_xaxis(ax)
+u.add_legend(ax)
+u.add_stats(ax, s, label="CAPE")
+fig.suptitle("CAPE",
+             fontsize=13, fontweight="bold", color=u.TEXT, y=1.01)
+u.save_fig(fig, "spx_cape.png")
