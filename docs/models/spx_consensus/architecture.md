@@ -32,7 +32,7 @@ Le système décide d'être investi (IN) ou en cash (OUT) à chaque mois, en com
   - Evalue chaque groupe sur le train. Chaque groupe est investi si au moins N de ses traders sont ON. On calcule le CAGR, RTR, stability, etc de chaque groupe. 
   - Garde le top 50, filtré par RTR >= 0 et CAGR >= 0 (seuil de sécurité), trié par ("stability", "cagr"). Poids de vote proportionnels au CAGR train de chaque groupe.
   - Ça donne un ensemble.
-4. Évaluation des ensembles sur le train : les 5 ensembles votent. Majorité 2/3. Chaque ensemble dit 0 ou 1 en fonction du seuil d'hyperparamètre gridsearch `vote_threshold` (compris dans (0.5, 0.6, 0.7)). Si la majorité des ensembles retournent 1, le consensus envoi un signal d'achat, sinon il envoi un signal de vente. (Note : l'évaluation peut se faire sur un split validation séparé du train via ADAPTIVE_VAL_YEARS. Actuellement désactivé).
+4. Évaluation des ensembles sur le train : les 3 ensembles votent. Majorité 2/3. Chaque ensemble dit 0 ou 1 en fonction du seuil d'hyperparamètre gridsearch `vote_threshold` (compris dans (0.5, 0.6, 0.7)). Si la majorité des ensembles retournent 1, le consensus envoi un signal d'achat, sinon il envoi un signal de vente. (Note : l'évaluation peut se faire sur un split validation séparé du train via ADAPTIVE_VAL_YEARS. Actuellement désactivé).
 5. On retourne le CAGR du consensus avec ses hyperparamètres sur le train.
 6. Sélection du meilleur combo d'HP : trié par (cagr, rtr) sur le train, filtré par stability >= baseline (mediane des hyperparams), médiane entre les hyperparams ex-æquo si plusieurs hyperparams ont le même (cagr, rtr).
 7. On fait ensuite le test sur le meilleur combo avec le même principe que l'évaluation des ensembles sur le train.
