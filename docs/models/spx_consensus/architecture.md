@@ -71,6 +71,7 @@ Décomposition statique des poids le long du graphe groupes > traders > signaux.
 - Signaux rares éliminés : Les signaux de recovery (credit spread, NFCI, unemployment) fire 3-4 fois en 25 ans et perdent la compétition face aux SMA/VIX utiles partout.
 - Modèle unique : Un seul ensemble monthly essaie de tout faire (bull, crisis, recovery). Des modèles séparés par régime seraient plus adaptés.
 - Limites d'indicateurs et pondération : Dans la vraie vie, un trader n'est pas limité à 5 indicateur et il pondère chaque indicateur en fonction du contexte (ce n'est pas un IN/OUT fixe sur 20 ans avec "si j'ai 3 indicateurs sur 5 ON je suis IN") (_TODO en V2_).
+- Execution price : Le backtest simule une entrée/sortie au close du mois, mais en live on exécute au début de la période suivante (si on attend d'avoir les données de la fin du mois, on peut pas éxécuter au close du mois, on est obligé d'éxécuter a l'open du mois suivant ou dans la journée). Améliorer en mesurant le return open/open plutôt que close/close et intégrer la stratégie d'éxécution intraday (VWAP, etc).
 
 ## Hyperparamètre
 
