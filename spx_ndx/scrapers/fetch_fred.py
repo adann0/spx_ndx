@@ -84,7 +84,7 @@ def fetch_fred(series_id, file):
             df.to_parquet(OUTPUT_DIR / file, index=False)
             print(f"  -> {file}  ({len(df)} rows, {df['date'].min().date()} > {df['date'].max().date()})")
             return
-        except (requests.exceptions.RequestException, Exception) as e:
+        except (requests.exceptions.RequestException, requests.exceptions.ReadTimeout, Exception) as e:
             if attempt < RETRIES - 1:
                 wait = BACKOFF[attempt]
                 print(f"  RETRY {attempt+1}/{RETRIES} for {series_id}: {e} (wait {wait}s)")
