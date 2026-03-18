@@ -5,7 +5,7 @@ Downloads FRED series via public XLS endpoint - no API key required.
 Re-downloads everything on every run.
 Saves to datas/ as parquet files.
 """
-import requests
+from curl_cffi import requests
 import pandas as pd
 from io import BytesIO
 from pathlib import Path
@@ -71,7 +71,7 @@ def fetch_fred(series_id, file):
     url = FRED_BASE + series_id
     for attempt in range(RETRIES):
         try:
-            response = requests.get(url, timeout=120, headers=HEADERS)
+            response = requests.get(url, timeout=120, headers=HEADERS, impersonate="chrome")
             response.raise_for_status()
             xls = pd.ExcelFile(BytesIO(response.content))
             df = pd.read_excel(xls, sheet_name=xls.sheet_names[-1])
