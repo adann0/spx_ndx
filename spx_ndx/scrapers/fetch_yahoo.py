@@ -20,16 +20,16 @@ TICKERS = {
     "qqq":   "QQQ",     # Nasdaq-100 ETF
     "urth":  "URTH",    # MSCI World ETF
     "gold":  "GC=F",    # Gold futures (depuis ~2000 sur Yahoo)
-    "msci-world": "^990100-USD-STRD", # MSCI WORLD
+    #"msci-world": "^990100-USD-STRD", # MSCI WORLD
     "vix9d": "^VIX9D",  # VIX 9-day (short-term vol)
     "vix3m": "^VIX3M",  # VIX 3-month (term structure)
     "hyg":   "HYG",     # High Yield Corporate Bond ETF
     "lqd":   "LQD",     # Investment Grade Corporate Bond ETF
     "tlt":   "TLT",     # 20+ Year Treasury Bond ETF
-    "dxy":   "DX-Y.NYB", # US Dollar Index
+    "dxy":   "DX=F", # US Dollar Index
     "rut":   "^RUT",     # Russell 2000 (small caps)
     "copper": "HG=F",    # Copper futures (Dr. Copper)
-    "move":  "^MOVE",    # MOVE Index (bond volatility)
+    #"move":  "^MOVE",    # MOVE Index (bond volatility)
     "ief":   "IEF",      # 7-10 Year Treasury Bond ETF
     "kbe":   "KBE",      # SPDR S&P Bank ETF (bank stocks)
 }

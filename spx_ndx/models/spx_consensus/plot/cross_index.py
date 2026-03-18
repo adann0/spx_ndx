@@ -73,11 +73,11 @@ def plot_cross_index(metrics, df, label, signal, strategy_returns, buy_hold_retu
     baseline = metrics.get("baseline") or compute_baseline(data)
     cross_index_data = _cross_index(data, df.index, baseline, dataset)
 
-    index_colors = {"SPX": RED, "NDX": BLUE, "MSCI World": GREEN}
-    cross_cols = {"NDX": "ndx_close", "MSCI World": "msci_close"}
+    index_colors = {"SPX": RED, "NDX": BLUE}
+    cross_cols = {"NDX": "ndx_close"}
 
     paths = []
-    for index_name in ["SPX", "NDX", "MSCI World"]:
+    for index_name in ["SPX", "NDX"]:
         if index_name not in cross_index_data:
             continue
         r = cross_index_data[index_name]
