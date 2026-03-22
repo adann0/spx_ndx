@@ -26,7 +26,7 @@ TICKERS = {
     "hyg":   "HYG",     # High Yield Corporate Bond ETF
     "lqd":   "LQD",     # Investment Grade Corporate Bond ETF
     "tlt":   "TLT",     # 20+ Year Treasury Bond ETF
-    "dxy":   "DX=F", # US Dollar Index
+    #"dxy":   "DX=F", # US Dollar Index
     "rut":   "^RUT",     # Russell 2000 (small caps)
     "copper": "HG=F",    # Copper futures (Dr. Copper)
     #"move":  "^MOVE",    # MOVE Index (bond volatility)

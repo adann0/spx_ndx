@@ -69,7 +69,7 @@ daily_yahoo = {
     "merged_gold.parquet": "gold_close",
     "merged_copper.parquet": "copper_close",
     "tlt.parquet": "tlt_close",
-    "dxy.parquet": "dxy_close",
+    #"dxy.parquet": "dxy_close",
     "hyg.parquet": "hyg_close",
     "lqd.parquet": "lqd_close",
     "move.parquet": "move_close",
@@ -274,7 +274,8 @@ if "vix9d_close" in dataset.columns:
 # Cross-asset raw closes
 for src, name in [("gold_close", "gold"), ("rut_close", "rut"),
                   ("tlt_close", "tlt"), ("copper_close", "copper"),
-                  ("dxy_close", "dxy"), ("hyg_close", "hyg"),
+                  #("dxy_close", "dxy"), 
+                  ("hyg_close", "hyg"),
                   ("lqd_close", "lqd"), ("move_close", "move"),
                   ("ndx_close", "ndx"), ("spy_close", "spy"),
                   ("w5000_close", "w5000"), ("msci_close", "msci"),
